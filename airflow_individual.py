@@ -1,4 +1,5 @@
-from airflow import DAG
+#from airflow import DAG
+from marquez_airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.postgres_operator import PostgresOperator
 from airflow.models import BaseOperator
@@ -148,6 +149,9 @@ def scrape_data_bgg(**kwargs):
                 print("An exception has occurred, waiting one seconds...")
                 sleep(1)
         return r
+    
+    import sys
+    sys.setrecursionlimit(1000000)
     
     # Initialize a dataframe
     df_all = pd.DataFrame(columns=["rank","game_id", "title","geek_rating","avg_rating","votes", "pic_url"])
