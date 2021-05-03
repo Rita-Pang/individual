@@ -1,2 +1,2 @@
 # individual
-individual assignment
+individual assignment repository
